@@ -5,18 +5,18 @@ class StringCalculator {
     Add(numbers) {
         this.callCount++;
         if (!numbers) return 0;
-        let delimiter = ',';
         let numberString = numbers;
         if (numbers.startsWith('//')) {
             const parts = numbers.split('\n');
-            delimiter = parts[0].slice(2);
-            if (delimiter.startsWith('[') && delimiter.endsWith(']')) {
-                delimiter = delimiter.slice(1, -1);
-            }
+            const delimiterSection = parts[0].slice(2);
+            const delimiters = delimiterSection.match(/\[([^\]]*)\]/g)?.map(d => d.slice(1, -1)) || [delimiterSection];
             numberString = parts[1];
+            delimiters.forEach(d => {
+                numberString = numberString.replaceAll(d, ',');
+            });
         }
-        numberString = numberString.replace(/\n/g, delimiter);
-        const numArray = numberString.split(delimiter).map(num => parseInt(num)).filter(num => !isNaN(num));
+        numberString = numberString.replace(/\n/g, ',');
+        const numArray = numberString.split(',').map(num => parseInt(num)).filter(num => !isNaN(num));
         const negatives = numArray.filter(num => num < 0);
         if (negatives.length > 0) {
             throw new Error(`negatives not allowed: ${negatives.join(',')}`);
