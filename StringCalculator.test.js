@@ -31,4 +31,12 @@ describe('StringCalculator', () => {
     test('should handle new lines as delimiters', () => {
         expect(calculator.Add('1\n2,3')).toBe(6);
     });
+
+    // Test 6: Support different delimiters
+    test('should support custom delimiter', () => {
+        expect(calculator.Add('//;\n1;2')).toBe(3);
+    });
+
+
+
 });
