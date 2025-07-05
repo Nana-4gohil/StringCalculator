@@ -37,6 +37,11 @@ describe('StringCalculator', () => {
         expect(calculator.Add('//;\n1;2')).toBe(3);
     });
 
+    // Test 7: Throw exception for negative numbers
+    test('should throw exception for negative numbers', () => {
+        expect(() => calculator.Add('1,-2')).toThrow('negatives not allowed: -2');
+    });
+
 
 
 });
