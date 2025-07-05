@@ -1,5 +1,9 @@
 class StringCalculator {
+    constructor() {
+        this.callCount = 0;
+    }
     Add(numbers) {
+        this.callCount++;
         if (!numbers) return 0;
         let delimiter = ',';
         let numberString = numbers;
@@ -15,6 +19,9 @@ class StringCalculator {
             throw new Error(`negatives not allowed: ${negatives.join(',')}`);
         }
         return numArray.reduce((sum, num) => sum + num, 0);
+    }
+    GetCalledCount() {
+        return this.callCount;
     }
 }
 module.exports = StringCalculator;
