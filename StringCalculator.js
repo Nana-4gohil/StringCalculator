@@ -10,6 +10,10 @@ class StringCalculator {
         }
         numberString = numberString.replace(/\n/g, delimiter);
         const numArray = numberString.split(delimiter).map(num => parseInt(num)).filter(num => !isNaN(num));
+        const negatives = numArray.filter(num => num < 0);
+        if (negatives.length > 0) {
+            throw new Error(`negatives not allowed: ${negatives.join(',')}`);
+        }
         return numArray.reduce((sum, num) => sum + num, 0);
     }
 }
