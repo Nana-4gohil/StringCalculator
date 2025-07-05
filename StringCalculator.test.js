@@ -26,4 +26,9 @@ describe('StringCalculator', () => {
     test('should handle multiple numbers', () => {
         expect(calculator.Add('1,2,3,4')).toBe(10);
     });
+
+    // Test 5: Handle new lines between numbers
+    test('should handle new lines as delimiters', () => {
+        expect(calculator.Add('1\n2,3')).toBe(6);
+    });
 });
