@@ -16,4 +16,9 @@ describe('StringCalculator', () => {
     test('should return number when single number is provided', () => {
         expect(calculator.Add('1')).toBe(1);
     });
+
+    // Test 3: Two numbers return their sum
+    test('should return sum of two numbers', () => {
+        expect(calculator.Add('1,2')).toBe(3);
+    });
 });
