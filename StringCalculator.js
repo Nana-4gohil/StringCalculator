@@ -10,6 +10,9 @@ class StringCalculator {
         if (numbers.startsWith('//')) {
             const parts = numbers.split('\n');
             delimiter = parts[0].slice(2);
+            if (delimiter.startsWith('[') && delimiter.endsWith(']')) {
+                delimiter = delimiter.slice(1, -1);
+            }
             numberString = parts[1];
         }
         numberString = numberString.replace(/\n/g, delimiter);
