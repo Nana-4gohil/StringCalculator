@@ -47,6 +47,13 @@ describe('StringCalculator', () => {
         expect(() => calculator.Add('1,-2,-3')).toThrow('negatives not allowed: -2,-3');
     });
 
+    // Test 9: Track number of calls to Add
+    test('should track number of calls to Add', () => {
+        calculator.Add('1');
+        calculator.Add('1,2');
+        expect(calculator.GetCalledCount()).toBe(2);
+    });
+
 
 
 });
