@@ -12,5 +12,8 @@ describe('StringCalculator', () => {
         expect(calculator.Add('')).toBe(0);
     });
 
-   
+   // Test 2: Single number returns that number
+    test('should return number when single number is provided', () => {
+        expect(calculator.Add('1')).toBe(1);
+    });
 });
