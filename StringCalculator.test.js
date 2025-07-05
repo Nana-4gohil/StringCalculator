@@ -64,6 +64,12 @@ describe('StringCalculator', () => {
         expect(calculator.Add('//[***]\n1***2***3')).toBe(6);
     });
 
+    // Test 12: Support multiple delimiters
+    test('should support multiple delimiters', () => {
+        expect(calculator.Add('//[*][%]\n1*2%3')).toBe(6);
+    });
+
+
 
 
 });
