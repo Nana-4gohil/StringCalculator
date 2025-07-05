@@ -12,7 +12,7 @@ describe('StringCalculator', () => {
         expect(calculator.Add('')).toBe(0);
     });
 
-   // Test 2: Single number returns that number
+    // Test 2: Single number returns that number
     test('should return number when single number is provided', () => {
         expect(calculator.Add('1')).toBe(1);
     });
@@ -20,5 +20,10 @@ describe('StringCalculator', () => {
     // Test 3: Two numbers return their sum
     test('should return sum of two numbers', () => {
         expect(calculator.Add('1,2')).toBe(3);
+    });
+
+    // Test 4: Handle unknown amount of numbers
+    test('should handle multiple numbers', () => {
+        expect(calculator.Add('1,2,3,4')).toBe(10);
     });
 });
