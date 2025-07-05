@@ -59,6 +59,11 @@ describe('StringCalculator', () => {
         expect(calculator.Add('2,1001')).toBe(2);
     });
 
+    // Test 11: Support delimiters of any length
+    test('should support delimiters of any length', () => {
+        expect(calculator.Add('//[***]\n1***2***3')).toBe(6);
+    });
+
 
 
 });
