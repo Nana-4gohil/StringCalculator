@@ -63,7 +63,27 @@ class StringCalculator {
         }
     }
 
-    
+    // Sum numbers, cubing those that appear more than twice, ignoring those > 1000
+    sumNumbers(numbers) {
+        // Count occurrences of each number using Map
+        const numberCounts = numbers.reduce((map, num) => {
+            if (num <= 1000) {
+                map.set(num, (map.get(num) || 0) + 1);
+            }
+            return map;
+        }, new Map());
+
+        // Sum numbers based on occurrence count
+        return Array.from(numberCounts).reduce((sum, [num, count]) => {
+            if (count > 2) {
+                // Cube the number if it appears more than twice
+                return sum + Math.pow(num, 3);
+            } else {
+                // Add the number count times
+                return sum + num * count;
+            }
+        }, 0);
+    }
 
     // Return number of Add calls
     GetCalledCount() {
