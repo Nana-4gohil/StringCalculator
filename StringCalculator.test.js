@@ -75,6 +75,10 @@ describe('StringCalculator', () => {
     });
 
 
-
+    //test 14 : support multiple number comming more then one time 
+    // [1,2,2,2,3,3] should 1 + 2^3 + 3 + 3 = 15;
+    test('should suport if number is occures more then > 2 then the sum shoud be the cube of that numbers', () => {
+        expect(calculator.Add('1,2,2,2,3,3')).toBe(15);
+    })
 
 });

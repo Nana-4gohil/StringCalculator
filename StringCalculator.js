@@ -1,4 +1,3 @@
-
 class StringCalculator {
     constructor() {
         // Initialize call counter
@@ -13,6 +12,7 @@ class StringCalculator {
         if (!numbers || typeof numbers !== 'string') return 0;
 
         const { delimiters, numberString } = this.extractDelimiters(numbers);
+        
         const parsedNumbers = this.parseNumbers(numberString, delimiters);
 
         this.validateNoNegatives(parsedNumbers);
@@ -63,12 +63,7 @@ class StringCalculator {
         }
     }
 
-    // Sum numbers, ignoring those > 1000
-    sumNumbers(numbers) {
-        return numbers
-            .filter(num => num <= 1000)
-            .reduce((sum, num) => sum + num, 0);
-    }
+    
 
     // Return number of Add calls
     GetCalledCount() {
